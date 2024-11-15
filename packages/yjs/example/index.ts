@@ -100,10 +100,11 @@ async function conflictResolutionExample() {
     doc1.insert("tasks", i, `任务${i + 1}`);
   }
 
-  // 用户2同时进行不同的批量操作
+  // 用户2的批量操作改为追加
   setTimeout(() => {
+    const currentLength = doc2.getArray("tasks").length();
     for (let i = 0; i < 3; i++) {
-      doc2.insert("tasks", 0, `优先任务${i + 1}`);
+      doc2.insert("tasks", currentLength + i, `优先任务${i + 1}`);
     }
   }, 50);
 
