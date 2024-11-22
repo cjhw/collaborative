@@ -45,7 +45,6 @@ export class YDoc {
       clock: newClock,
     };
 
-    this.batchManager.addUpdate(arrayName, item);
     this.notifyObservers(update);
 
     return item;
